@@ -1,1 +1,1 @@
-width = 800
+/info

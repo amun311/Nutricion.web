@@ -33,7 +33,7 @@ def main(page: ft.Page):
     
     def display(e): 
         container_calculos.content=ft.Column([
-                                    ft.Row([ft.Image(src='info/nutrientes.jpeg',height=830)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src='/info/nutrientes.jpeg',height=830)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         
         container_calculos.update()
@@ -1136,8 +1136,8 @@ def main(page: ft.Page):
     def tablas_mc(e):
         cl = ft.Column(spacing=10,  width = 800,  scroll=ft.ScrollMode.ALWAYS,  on_scroll_interval=0,)
         for n in range(1,7):
-            cl.controls.append(ft.Image(src=f'info/dc{n}.png',width = 800,))
-        #[ft.Image(src=f'info/dc{n}.png',width =1200, height=790) for n in range(1,7)]#width =1190, height=1290
+            cl.controls.append(ft.Image(src=f'/info/dc{n}.png',width = 800,))
+        #[ft.Image(src=f'/info/dc{n}.png',width =1200, height=790) for n in range(1,7)]#width =1190, height=1290
        
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('La densidad corporal es la relación entre la masa y el volumen del cuerpo. Existen diferentes fórmulas para calcular la densidad corporal, en este caso utilizaremos la ecuación de Durnin y Womersley',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
@@ -1149,8 +1149,8 @@ def main(page: ft.Page):
     def tablas_frisnacho(e):
         cl = ft.Column(spacing=10,  width = 800,  scroll=ft.ScrollMode.ALWAYS,  on_scroll_interval=0,)
         for n in range(1,3):
-            cl.controls.append(ft.Image(src=f'info/fr{n}.png',width = 800,))
-        #[ft.Image(src=f'info/dc{n}.png',width =1200, height=790) for n in range(1,7)]#width =1190, height=1290
+            cl.controls.append(ft.Image(src=f'/info/fr{n}.png',width = 800,))
+        #[ft.Image(src=f'/info/dc{n}.png',width =1200, height=790) for n in range(1,7)]#width =1190, height=1290
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Tablas Frisnacho',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
@@ -1158,7 +1158,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Text('Estos percentiles te ayudan a ubicar qué tan cerca del “promedio normal”se encuentra tu paciente en cuanto a su porcentaje de grasa',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
                                     ft.Row([cl],alignment=ft.MainAxisAlignment.CENTER),
                                     ft.Row([ft.Text('Luego de ubicar el percentil de tu paciente debes dirigirte a la siguiente tabla de Frisancho que te ayuda a interpretar los resultados',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/fr3.png',width = 800)],alignment=ft.MainAxisAlignment.CENTER)
+                                    ft.Row([ft.Image(src=f'/info/fr3.png',width = 800)],alignment=ft.MainAxisAlignment.CENTER)
                                     ])
         container_calculos.update()
     def formulas_pi(e):
@@ -1166,7 +1166,7 @@ def main(page: ft.Page):
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Cálculo de peso ideal y de peso corregido',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
                                     #ft.Row([ft.Text('El peso ideal se calcula, principalmente, en función de la altura del paciente, sin embargo,\nen algunas formulas también se utiliza la edad y sexo, como podemos observar en la ecuación de Lorentz, la cual recomendamos utilizar por su mayor especificidad',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/formulas_pi_pc.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/formulas_pi_pc.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     '''def formulas_pc(e):
@@ -1174,7 +1174,7 @@ def main(page: ft.Page):
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Formula de calculo peso corregido',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
                                     ft.Row([ft.Text('Cómo podemos observar, el peso corregido depende del peso ideal y el peso real de nuestro paciente,\nes por esa razón que al principio debemos realizar el cálculo del peso ideal',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/formula_pc.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/formula_pc.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()'''
     def signos_clinicos(e):
@@ -1182,24 +1182,24 @@ def main(page: ft.Page):
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Signos clinicos comunes',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
                                     #ft.Row([ft.Text('A continuación, te presentaré algunos signos clínicos que te pueden orientar hacia alguna posible alteración nutricional.\nEsta tabla que verás a continuación es suministrada por la FAO',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/signos_clinicos12.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER),
+                                    ft.Row([ft.Image(src=f'/info/signos_clinicos12.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER),
                                     #ft.Row([ft.Text('Tipo de carencias nutricionales asociados',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
                                     #ft.Row([ft.Text('Ahora, que ya conoces los signos clínicos más comunes, podrás identificar a qué tipo de carencias nutricionales están asociados.\nA continuación, te invito a revisar la siguiente tabla proporcionada por la FAO',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    #ft.Row([ft.Image(src=f'info/carencia_nutricional.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    #ft.Row([ft.Image(src=f'/info/carencia_nutricional.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def aed(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Aplicación de evaluación dietética',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/aed.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/aed.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def cid(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Cálculo de ingesta diaria de macronutrientes en la dieta',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/cid.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/cid.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def imc(e):
@@ -1207,17 +1207,17 @@ def main(page: ft.Page):
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Índices antropométricos',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
                                     ft.Row([ft.Text('Los índices antropométricos son valores de dimensión y composición corporal que nos indican el contenido graso y muscular presente en el cuerpo.\n Son muy útiles porque funcionan como predictores del estado nutricional, y de los factores de riesgo como enfermedades cardiovasculares, diabetes, dislipidemias, entre otros. ',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/imc.png')],alignment=ft.MainAxisAlignment.CENTER),
+                                    ft.Row([ft.Image(src=f'/info/imc.png')],alignment=ft.MainAxisAlignment.CENTER),
                                     ft.Row([ft.Text('clasificación del IMC',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/clasificacion_imc.png')],alignment=ft.MainAxisAlignment.CENTER),
+                                    ft.Row([ft.Image(src=f'/info/clasificacion_imc.png')],alignment=ft.MainAxisAlignment.CENTER),
                                     ft.Row([ft.Text('Circunferencia abdominal (CA)',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
                                     ft.Row([ft.Text('Es un indicador indirecto de la presencia de grasa intraabdominal o visceral.\nSu principal función es predecir el riesgo de enfermedades crónicas asociadas al sobrepeso u obesidad, como lo son las cardiovasculares y la diabetes.',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/circumferencia_abdominal.png',)],alignment=ft.MainAxisAlignment.CENTER),
+                                    ft.Row([ft.Image(src=f'/info/circumferencia_abdominal.png',)],alignment=ft.MainAxisAlignment.CENTER),
                                     ft.Row([ft.Text('Índice cintura/cadera (C/C)',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
                                     ft.Row([ft.Text('El Índice de cintura/cadera evalúa de forma indirecta la grasa abdominal del paciente.\nEste es un método predictivo del riesgo cardiometabólico. Para determinar este índice dividimos el perímetro de la cintura entre el perímetro de la cadera.',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/icc.png')],alignment=ft.MainAxisAlignment.CENTER),
+                                    ft.Row([ft.Image(src=f'/info/icc.png')],alignment=ft.MainAxisAlignment.CENTER),
                                     ft.Row([ft.Text('Luego, se utiliza la tabla de “criterios de evaluación de riesgos” para analizar el riesgo cardiovascular.',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/cer.jpeg',)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/cer.jpeg',)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     
                                     ])
         container_calculos.update()
@@ -1225,35 +1225,35 @@ def main(page: ft.Page):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Composición corporal del cuerpo humano',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/comp.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/comp.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def med_ant(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Toma de medidas antropométricas en el paciente',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/med_ant.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/med_ant.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def bal_en(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Balance energético',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/bal_en.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/bal_en.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def gasto_en(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Gasto energético',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/gasto_en.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/gasto_en.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def calc_gasto_en(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Gasto energético',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/calc_gasto_en.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/calc_gasto_en.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
         
@@ -1261,49 +1261,49 @@ def main(page: ft.Page):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Espectro de los carbohidratos',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/esp_carb.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/esp_carb.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def calc_carb(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Cálculo de requerimientos diarios de carbohidratos en la dieta',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/calc_carb.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/calc_carb.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def proteinas(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Proteínas vegetales y animales',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/proteinas.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/proteinas.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def calc_pro(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Cálculo de requerimientos diarios de proteínas en la dieta',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/calc_pro.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/calc_pro.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def lipidos(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Grasas dietéticas y sus efectos en la salud humana',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/lipidos.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/lipidos.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def calc_lip(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Cálculo de requerimientos diarios de lípidos en la dieta',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/calc_lip.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/calc_lip.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def vitaminas_liposolubles(e):
         
         container_calculos.content=ft.Column([
                                     ft.Row([ft.Text('Vitaminas liposolubles (Rhoades y Tarner; Fisiología Médica, Masson 1997)',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/vitaminas_liposolubles.png',width =1200, height=800)],alignment=ft.MainAxisAlignment.CENTER)
+                                    ft.Row([ft.Image(src=f'/info/vitaminas_liposolubles.png',width =1200, height=800)],alignment=ft.MainAxisAlignment.CENTER)
                                         ])
         container_calculos.update()
     def vitaminas_hidrosolubles(e):
@@ -1311,42 +1311,42 @@ def main(page: ft.Page):
         
         container_calculos.content=ft.Column([
                                     ft.Row([ft.Text('Ingestas recomendadas de las vitaminas hidrosolubles',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),                                    
-                                    ft.Row([ft.Image(src=f'info/vitaminas_hidrosolubles.png',width =1200, height=800)],alignment=ft.MainAxisAlignment.CENTER)
+                                    ft.Row([ft.Image(src=f'/info/vitaminas_hidrosolubles.png',width =1200, height=800)],alignment=ft.MainAxisAlignment.CENTER)
                                     ])
         container_calculos.update()
     def minerales_esenciales(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Minerales esenciales, beneficios, fuentes y recomendaciones diarias. Fundación Nemours / KidsHealth, Revisado por: Mary L. Gavin, MD 2014',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/minerales_esenciales.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/minerales_esenciales.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def interv_nutr(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Intervención nutricional',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/interv_nutr.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/interv_nutr.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def horario_comida(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Horarios de comida',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/horario_comida.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/horario_comida.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def dist_macro(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Distribución de macronutrientes por tiempos de comida',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/dist_macro.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/dist_macro.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def menu_sal(e):
         
         container_calculos.content= ft.Column([
                                     ft.Row([ft.Text('Creación de un menú saludable',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/menu_sal.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Row([ft.Image(src=f'/info/menu_sal.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
     def salir(e):
