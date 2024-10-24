@@ -33,7 +33,7 @@ def main(page: ft.Page):
     
     def display(e): 
         container_calculos.content=ft.Column([
-                                    ft.Row([ft.Image(src='info/nutrientes.jpeg',height=830)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
+                                    ft.Image(src='info/nutrientes.jpeg',height=830)#width =1190, height=1290
                                     ])
         
         container_calculos.update()
@@ -1133,6 +1133,7 @@ def main(page: ft.Page):
                 ])
         container_calculos.update()
     #######################3
+    # Tablas M/C
     def tablas_mc(e):
         cl = ft.Column(spacing=10,  width = 800,  scroll=ft.ScrollMode.ALWAYS,  on_scroll_interval=0,)
         for n in range(1,7):
@@ -1146,6 +1147,7 @@ def main(page: ft.Page):
                                     ft.Row([cl],alignment=ft.MainAxisAlignment.CENTER),
                                     ])
         container_calculos.update()
+    # Tablas Frisnacho
     def tablas_frisnacho(e):
         cl = ft.Column(spacing=10,  width = 800,  scroll=ft.ScrollMode.ALWAYS,  on_scroll_interval=0,)
         for n in range(1,3):
@@ -1161,6 +1163,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/fr3.png',width = 800)],alignment=ft.MainAxisAlignment.CENTER)
                                     ])
         container_calculos.update()
+    # Cálculo de peso ideal y de peso corregido
     def formulas_pi(e):
         
         container_calculos.content= ft.Column([
@@ -1169,14 +1172,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/formulas_pi_pc.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
-    '''def formulas_pc(e):
-        
-        container_calculos.content= ft.Column([
-                                    ft.Row([ft.Text('Formula de calculo peso corregido',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Text('Cómo podemos observar, el peso corregido depende del peso ideal y el peso real de nuestro paciente,\nes por esa razón que al principio debemos realizar el cálculo del peso ideal',weight='bold', color = 'blue')],alignment=ft.MainAxisAlignment.CENTER),
-                                    ft.Row([ft.Image(src=f'info/formula_pc.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
-                                    ])
-        container_calculos.update()'''
+    # Signos clinicos comunes
     def signos_clinicos(e):
         
         container_calculos.content= ft.Column([
@@ -1188,6 +1184,7 @@ def main(page: ft.Page):
                                     #ft.Row([ft.Image(src=f'info/carencia_nutricional.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Aplicación de evaluación dietética
     def aed(e):
         
         container_calculos.content= ft.Column([
@@ -1195,6 +1192,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/aed.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Cálculo de ingesta diaria de macronutrientes en la dieta
     def cid(e):
         
         container_calculos.content= ft.Column([
@@ -1202,6 +1200,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/cid.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Índices antropométricos
     def imc(e):
         
         container_calculos.content= ft.Column([
@@ -1221,6 +1220,7 @@ def main(page: ft.Page):
                                     
                                     ])
         container_calculos.update()
+    # Composición corporal del cuerpo humano
     def comp(e):
         
         container_calculos.content= ft.Column([
@@ -1228,6 +1228,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/comp.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Toma de medidas antropométricas en el paciente
     def med_ant(e):
         
         container_calculos.content= ft.Column([
@@ -1235,6 +1236,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/med_ant.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Balance energético
     def bal_en(e):
         
         container_calculos.content= ft.Column([
@@ -1242,6 +1244,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/bal_en.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Gasto energético
     def gasto_en(e):
         
         container_calculos.content= ft.Column([
@@ -1249,6 +1252,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/gasto_en.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Calculo gasto energético
     def calc_gasto_en(e):
         
         container_calculos.content= ft.Column([
@@ -1256,7 +1260,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/calc_gasto_en.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
-        
+    # Espectro de los carbohidratos    
     def espectro_carb(e):
         
         container_calculos.content= ft.Column([
@@ -1264,6 +1268,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/esp_carb.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Cálculo de requerimientos diarios de carbohidratos en la dieta
     def calc_carb(e):
         
         container_calculos.content= ft.Column([
@@ -1271,6 +1276,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/calc_carb.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Proteínas vegetales y animales
     def proteinas(e):
         
         container_calculos.content= ft.Column([
@@ -1278,6 +1284,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/proteinas.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Cálculo de requerimientos diarios de proteínas en la dieta
     def calc_pro(e):
         
         container_calculos.content= ft.Column([
@@ -1285,6 +1292,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/calc_pro.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Grasas dietéticas y sus efectos en la salud humana
     def lipidos(e):
         
         container_calculos.content= ft.Column([
@@ -1292,6 +1300,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/lipidos.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Cálculo de requerimientos diarios de lípidos en la dieta
     def calc_lip(e):
         
         container_calculos.content= ft.Column([
@@ -1299,6 +1308,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/calc_lip.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Vitaminas liposolubles (Rhoades y Tarner; Fisiología Médica, Masson 1997)
     def vitaminas_liposolubles(e):
         
         container_calculos.content=ft.Column([
@@ -1306,6 +1316,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/vitaminas_liposolubles.png',width =1200, height=800)],alignment=ft.MainAxisAlignment.CENTER)
                                         ])
         container_calculos.update()
+    # Ingestas recomendadas de las vitaminas hidrosolubles
     def vitaminas_hidrosolubles(e):
         
         
@@ -1314,6 +1325,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/vitaminas_hidrosolubles.png',width =1200, height=800)],alignment=ft.MainAxisAlignment.CENTER)
                                     ])
         container_calculos.update()
+    # Minerales esenciales, beneficios, fuentes y recomendaciones diarias
     def minerales_esenciales(e):
         
         container_calculos.content= ft.Column([
@@ -1321,6 +1333,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/minerales_esenciales.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Intervención nutricional
     def interv_nutr(e):
         
         container_calculos.content= ft.Column([
@@ -1328,6 +1341,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/interv_nutr.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Horarios de comida
     def horario_comida(e):
         
         container_calculos.content= ft.Column([
@@ -1335,6 +1349,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/horario_comida.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Distribución de macronutrientes por tiempos de comida
     def dist_macro(e):
         
         container_calculos.content= ft.Column([
@@ -1342,6 +1357,7 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/dist_macro.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # Creación de un menú saludable
     def menu_sal(e):
         
         container_calculos.content= ft.Column([
@@ -1349,8 +1365,10 @@ def main(page: ft.Page):
                                     ft.Row([ft.Image(src=f'info/menu_sal.png',width =1200)],alignment=ft.MainAxisAlignment.CENTER)#width =1190, height=1290
                                     ])
         container_calculos.update()
+    # exit
     def salir(e):
         page.window.destroy()
+    # about
     def about(e):
         def close_dlg(*args):
                     dlg_modal.open = False
