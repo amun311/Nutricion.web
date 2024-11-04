@@ -21,7 +21,13 @@
 
     <title>Cálculo dietético</title>
     <link rel="manifest" href="manifest.json">
-
+    <script>
+      if (screen.width < 800 || screen.height < 600) {
+        alert("Por favor accede a esta aplicacion desde una pantalla mas grande");
+        window.location.href = "http://muntenas.me";
+    }
+    
+    </script>
     <script>
       var webRenderer = "auto";
       var useColorEmoji = false;
