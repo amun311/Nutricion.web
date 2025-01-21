@@ -1,1 +1,1 @@
-.Icons
+.colors
