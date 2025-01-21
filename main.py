@@ -33,7 +33,7 @@ def main(page: ft.Page):
     
     def display(e): 
         container_calculos.content=ft.Column([
-                                    ft.Image(src='info/nutrientes.jpeg')#width =1190, height=1290
+                                    ft.Image(src='info/nutrientes.jpeg',height=830)#width =1190, height=1290
                                     ])
         
         container_calculos.update()
