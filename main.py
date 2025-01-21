@@ -15,7 +15,7 @@ def main(page: ft.Page):
     page.spacing=1
     page.scroll=ft.ScrollMode.ADAPTIVE
     page.window.icon = 'icon.ico'
-    theme = ft.Theme(text_theme=ft.TextStyle(weight='Bold',color=ft.Colors.BLUE),use_material3=True)
+    theme = ft.Theme(text_theme=ft.TextStyle(weight='Bold',color=ft.colors.BLUE),use_material3=True)
     theme.page_transitions.android = ft.PageTransitionTheme.FADE_UPWARDS
     theme.page_transitions.linux = ft.PageTransitionTheme.NONE
     theme.page_transitions.windows = ft.PageTransitionTheme.FADE_UPWARDS
@@ -33,11 +33,11 @@ def main(page: ft.Page):
     
     def display(e): 
         container_calculos.content=ft.Column([
-                                    ft.Image(src='info/nutrientes.jpeg',height=830)#width =1190, height=1290
+                                    ft.Image(src='info/nutrientes.jpeg')#width =1190, height=1290
                                     ])
         
         container_calculos.update()
-    back= ft.IconButton(icon=ft.Icons.HOME,on_click=display)
+    back= ft.IconButton(icon=ft.icons.HOME,on_click=display)
     container_back.content=ft.Row([back],ft.MainAxisAlignment.START)
     #calculo de indice de masa corporal
     def imc_clicked(e):
