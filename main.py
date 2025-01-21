@@ -15,12 +15,12 @@ def main(page: ft.Page):
     page.spacing=1
     page.scroll=ft.ScrollMode.ADAPTIVE
     page.window.icon = 'icon.ico'
-    theme = ft.Theme(text_theme=ft.TextStyle(weight='Bold',color=ft.colors.BLUE),use_material3=True)
+    theme = ft.Theme(text_theme=ft.TextStyle(weight='Bold',color=ft.Colors.BLUE),use_material3=True)
     theme.page_transitions.android = ft.PageTransitionTheme.FADE_UPWARDS
     theme.page_transitions.linux = ft.PageTransitionTheme.NONE
     theme.page_transitions.windows = ft.PageTransitionTheme.FADE_UPWARDS
     page.theme=theme
-    #page.bgcolor = ft.colors.WHITE
+    #page.bgcolor = ft.Colors.WHITE
     
     
     #page.window_full_screen=True
@@ -37,7 +37,7 @@ def main(page: ft.Page):
                                     ])
         
         container_calculos.update()
-    back= ft.IconButton(icon=ft.icons.HOME,on_click=display)
+    back= ft.IconButton(icon=ft.Icons.HOME,on_click=display)
     container_back.content=ft.Row([back],ft.MainAxisAlignment.START)
     #calculo de indice de masa corporal
     def imc_clicked(e):
@@ -1389,7 +1389,7 @@ def main(page: ft.Page):
         
     '''page.appbar = ft.AppBar(
         leading=ft.PopupMenuButton(
-                icon = ft.icons.MENU,
+                icon = ft.Icons.MENU,
                 tooltip='Calculos',
                 items=[
                     ft.PopupMenuItem(text="Cálculo de índice de masa corporal",on_click=imc_clicked),
@@ -1408,12 +1408,12 @@ def main(page: ft.Page):
         leading_width=40,
         title=ft.Text("Calculos nutricion"),
         center_title=False,
-        bgcolor=ft.colors.BLUE,
+        bgcolor=ft.Colors.BLUE,
         actions=[
-            #ft.IconButton(ft.icons.WB_SUNNY_OUTLINED),
-            #ft.IconButton(ft.icons.FILTER_3),
+            #ft.IconButton(ft.Icons.WB_SUNNY_OUTLINED),
+            #ft.IconButton(ft.Icons.FILTER_3),
             ft.PopupMenuButton(
-                icon = ft.icons.INFO_OUTLINE,
+                icon = ft.Icons.INFO_OUTLINE,
                 tooltip='Valoracción nutricional',
                 items=[
                     
@@ -1433,7 +1433,7 @@ def main(page: ft.Page):
                 ]
             ),
              ft.PopupMenuButton(
-                icon = ft.icons.INFO,
+                icon = ft.Icons.INFO,
                 tooltip='Estudio de los nutrientes',
                 items=[
                    
@@ -1471,56 +1471,56 @@ def main(page: ft.Page):
         expand=True,        
         style=ft.MenuStyle(
             alignment=ft.alignment.top_left,
-            bgcolor=ft.colors.PURPLE_100,
+            bgcolor=ft.Colors.PURPLE_100,
             mouse_cursor={ft.ControlState.HOVERED: ft.MouseCursor.WAIT,
                           ft.ControlState.DEFAULT: ft.MouseCursor.ZOOM_OUT},
         ),
         
         controls=[
             ft.SubmenuButton(
-                content=ft.IconButton(icon=ft.icons.HOME,on_click=display),
+                content=ft.IconButton(icon=ft.Icons.HOME,on_click=display),
             ),            
             ft.SubmenuButton(
                 content=ft.Text("Calculos"),
                 controls=[
                     ft.MenuItemButton(
                         content=ft.Text('Cálculo de índice de masa corporal'),
-                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.GREEN_100}),
+                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.GREEN_100}),
                         on_click=imc_clicked
                     ),
                     ft.MenuItemButton(
                         content=ft.Text("Cálculo riesgo diabete en funcion de circumferencia abdominal"),
-                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.GREEN_100}),
+                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.GREEN_100}),
                         on_click=cabd_clicked
                     ),
                     ft.MenuItemButton(
                         content=ft.Text("Índice de cintura y cadera"),
-                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.GREEN_100}),
+                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.GREEN_100}),
                         on_click=icc_clicked
                     ),
                     ft.MenuItemButton(
                         content=ft.Text("Cálculo de la composición corporal y porcentaje de grasa"),
-                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.GREEN_100}),
+                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.GREEN_100}),
                         on_click=spc_clicked
                     ),
                     ft.MenuItemButton(
                         content=ft.Text("Cálculo de peso ideal y peso corregido, tasa metabólica basal TMB, gasto energetico total"),
-                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.GREEN_100}),
+                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.GREEN_100}),
                         on_click=pi_clicked
                     ),
                     ft.MenuItemButton(
                         content=ft.Text("Cálculo de ingesta diaria de macronutrientes en la dieta"),
-                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.GREEN_100}),
+                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.GREEN_100}),
                         on_click=id_clicked
                     ),
                     ft.MenuItemButton(
                         content=ft.Text("Cálculo de requerimientos diarios de carbohidratos/proteinas/lipidos en la dieta"),
-                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.GREEN_100}),
+                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.GREEN_100}),
                         on_click=rq_carbohidratos_clicked
                     ),
                     #ft.MenuItemButton(
                     #    content=ft.Text("Cálculo dieta"),
-                    #    style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.GREEN_100}),
+                    #    style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.GREEN_100}),
                     #    on_click=diet
                    # ),
                    
@@ -1532,84 +1532,84 @@ def main(page: ft.Page):
                 controls=[
                     ft.SubmenuButton(
                         content=ft.Text("Valoracción nutricional"),
-                        leading=ft.Icon(ft.icons.INFO),
+                        leading=ft.Icon(ft.Icons.INFO),
                         controls=[
                             ft.MenuItemButton(
                                 content=ft.Text("Tablas constante M y C"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=tablas_mc
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Tablas de Frisnacho"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=tablas_frisnacho
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Cálculo de peso ideal y  de peso corregido"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=formulas_pi
                             ),
                             #ft.MenuItemButton(
                             #    content=ft.Text("Formula de calculo peso corregidoFormula de calculo peso corregido"),
                              #   close_on_click=True,
-                              #  style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                              #  style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                               #  on_click=formulas_pc
                            # ),
                             ft.MenuItemButton(
                                 content=ft.Text("Signos clinicos"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=signos_clinicos
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Aplicación de evaluación dietética"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=aed
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Cálculo de ingesta diaria de macronutrientes en la dieta"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=cid
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Índices antropométricos"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=imc
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Composición corporal del cuerpo humano"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=comp
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Toma de medidas antropométricas en el paciente"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=med_ant
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Balance energético"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=bal_en
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Gasto energético"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=gasto_en
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Cálculo gasto energético"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=calc_gasto_en
                             ),
                             
@@ -1618,84 +1618,84 @@ def main(page: ft.Page):
                                  
                     ft.SubmenuButton(
                         content=ft.Text("Estudio de los nutrientes"),
-                        leading=ft.Icon(ft.icons.INFO),
+                        leading=ft.Icon(ft.Icons.INFO),
                         controls=[
                             ft.MenuItemButton(
                                 content=ft.Text("Espectro de los carbohidratos"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=espectro_carb
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Cálculo de requerimientos diarios de carbohidratos en la dieta"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=calc_carb
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Proteínas vegetales y animales"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=proteinas
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Cálculo de requerimientos diarios de proteínas en la dieta"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=calc_pro
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Grasas dietéticas y sus efectos en la salud humana"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=lipidos
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Cálculo de requerimientos diarios de lípidos en la dieta"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=calc_lip
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Vitaminas liposolubles"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=vitaminas_liposolubles
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Vitaminas hidrosolubles"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=vitaminas_hidrosolubles
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Minerales esenciales"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=minerales_esenciales
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Intervención nutricional"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=interv_nutr
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Horarios de comida"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=horario_comida
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Distribución de macronutrientes por tiempos de comida"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=dist_macro
                             ),
                             ft.MenuItemButton(
                                 content=ft.Text("Creación de un menú saludable"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=menu_sal
                             ),
                         ]
@@ -1704,22 +1704,22 @@ def main(page: ft.Page):
                     ft.Divider(),
                     ft.MenuItemButton(
                         content=ft.Text("Base de Datos Española de Composición de Alimentos"),
-                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.GREEN_100}),
+                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.GREEN_100}),
                         on_click=bde
                     ),
                     ft.Divider(),
                     ft.MenuItemButton(
                                 content=ft.Text("Acerca de"),
                                 close_on_click=True,
-                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.PURPLE_200}),
+                                style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.PURPLE_200}),
                                 on_click=about
                     ),
                    
                 ]
             ),
             ft.SubmenuButton(content=ft.Text("",expand=True),),
-            #ft.SubmenuButton(content=ft.IconButton(on_click=salir,icon=ft.icons.EXIT_TO_APP),),
-            #ft.SubmenuButton(content=ft.IconButton(on_click=datos,icon=ft.icons.DATA_ARRAY),)
+            #ft.SubmenuButton(content=ft.IconButton(on_click=salir,icon=ft.Icons.EXIT_TO_APP),),
+            #ft.SubmenuButton(content=ft.IconButton(on_click=datos,icon=ft.Icons.DATA_ARRAY),)
         ]
     )
                  
@@ -1735,6 +1735,6 @@ ft.app(target=main,assets_dir='assets',view=ft.AppView.WEB_BROWSER)
 ''' ft.Divider(),
                     ft.MenuItemButton(
                         content=ft.Text("Salir"),
-                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.colors.GREEN_100}),
+                        style=ft.ButtonStyle(bgcolor={ft.ControlState.HOVERED: ft.Colors.GREEN_100}),
                         on_click=salir
                     ),'''
