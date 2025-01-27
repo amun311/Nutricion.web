@@ -56,8 +56,8 @@ def main(page: ft.Page):
                 globals()['indice_masa_corporal']=field_imc.value
                 container_calculos.update()
         clc = ft.ElevatedButton('Calcula IMC', on_click=imc_calc,color ='white',bgcolor='blue')
-        field_peso = ft.TextField(suffix_text='kilogramos',text_align=ft.TextAlign.CENTER,label='Peso',value=peso,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]|^]", replacement_string=""),width = 300)
-        field_altura = ft.TextField(suffix_text='centimetros',text_align=ft.TextAlign.CENTER,label='Altura',value=altura,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
+        field_peso = ft.TextField(suffix_text='kilogramos',text_align=ft.TextAlign.CENTER,label='Peso',value=peso,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300) #regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]"
+        field_altura = ft.TextField(suffix_text='centimetros',text_align=ft.TextAlign.CENTER,label='Altura',value=altura,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
         field_imc = ft.TextField(label = 'Índice de masa corporal',read_only=True,width = 300, color = 'blue')
         
         container_calculos.content= ft.Column([
@@ -86,7 +86,7 @@ def main(page: ft.Page):
                     elif cabd>=88 : field_circumferencia_abdominal_out.value = 'Riesgo alto'
                 container_calculos.update()
         clc = ft.ElevatedButton('Calcula riesgo diabetes', on_click=cabd_calc,color ='white',bgcolor='blue')
-        field_circumferencia_abdominal_in = ft.TextField(suffix_text='centimetros',text_align=ft.TextAlign.CENTER,label='Circumferencia abdominal',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
+        field_circumferencia_abdominal_in = ft.TextField(suffix_text='centimetros',text_align=ft.TextAlign.CENTER,label='Circumferencia abdominal',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
         field_circumferencia_abdominal_out=ft.TextField(label = 'Riesgo diabete' ,read_only=True,width =300, color = 'blue')
         hombre_mujer = ft.Slider(min=0, max=1, divisions=1,active_color='blue', inactive_color='red',thumb_color='green', width=20,value = 0,on_change=cabd_calc)
         
@@ -110,53 +110,53 @@ def main(page: ft.Page):
                 icc = round(float(field_perimetro_cintura.value) / float(field_perimetro_cadera.value),2)
                 
                 if hombre_mujer.value==0:
-                    if 20 <= int(field_edad.value) <29:
-                        if  icc < 0.83: field_icc.value = f'Riesgo BAJO, ICC: {icc}' 
+                    if 20 <= float(field_edad.value) <29:
+                        if  icc < 0.83: field_icc.value = f'Riesgo BAJO, ICC: {icc}' #int(field_edad.value)
                         elif 0.83 <= icc <= 0.88: field_icc.value = f'Riesgo MODERADO, ICC: {icc}'  
                         elif 0.89 <= icc <= 0.94: field_icc.value = f'Riesgo ALTO, ICC: {icc}'
                         elif icc  > 0.94: field_icc.value = f'Riesgo MUY ALTO, ICC: {icc}'
-                    elif 30 <= int(field_edad.value) <39:
+                    elif 30 <= float(field_edad.value) <39:
                         if  icc < 0.84: field_icc.value = f'Riesgo BAJO, ICC: {icc}' 
                         elif 0.84 <= icc <= 0.91: field_icc.value = f'Riesgo MODERADO, ICC: {icc}'  
                         elif 0.92 <= icc <= 0.96: field_icc.value = f'Riesgo ALTO, ICC: {icc}'
                         elif icc  > 0.96: field_icc.value = f'Riesgo MUY ALTO, ICC: {icc}'
-                    elif 40 <= int(field_edad.value) <49:
+                    elif 40 <= float(field_edad.value) <49:
                         if  icc < 0.88: field_icc.value = f'Riesgo BAJO, ICC: {icc}' 
                         elif 0.88 <= icc <= 0.95: field_icc.value = f'Riesgo MODERADO, ICC: {icc}'  
                         elif 0.96 <= icc <= 1: field_icc.value = f'Riesgo ALTO, ICC: {icc}'
                         elif icc  > 1: field_icc.value = f'Riesgo MUY ALTO, ICC: {icc}'
-                    elif 50 <= int(field_edad.value) <59:
+                    elif 50 <= float(field_edad.value) <59:
                         if  icc < 0.9: field_icc.value = f'Riesgo BAJO, ICC: {icc}' 
                         elif 0.9 <= icc <= 0.96: field_icc.value = f'Riesgo MODERADO, ICC: {icc}'  
                         elif 0.97 <= icc <= 1.02: field_icc.value = f'Riesgo ALTO, ICC: {icc}'
                         elif icc  > 1.02: field_icc.value = f'Riesgo MUY ALTO, ICC: {icc}'
-                    elif 60 <= int(field_edad.value) <69:
+                    elif 60 <= float(field_edad.value) <69:
                         if  icc < 0.91: field_icc.value = f'Riesgo BAJO, ICC: {icc}' 
                         elif 0.91 <= icc <= 0.98: field_icc.value = f'Riesgo MODERADO, ICC: {icc}'  
                         elif 0.99 <= icc <= 1.03: field_icc.value = f'Riesgo ALTO, ICC: {icc}'
                         elif icc  > 1.03: field_icc.value = f'Riesgo MUY ALTO, ICC: {icc}'
                 elif hombre_mujer.value==1:
-                    if 20 <= int(field_edad.value) <29:
+                    if 20 <= float(field_edad.value) <29:
                         if  icc < 0.71: field_icc.value = f'Riesgo BAJO, ICC: {icc}' 
                         elif 0.71 <= icc <= 0.77: field_icc.value = f'Riesgo MODERADO, ICC: {icc}'  
                         elif 0.78 <= icc <= 0.82: field_icc.value = f'Riesgo ALTO, ICC: {icc}'
                         elif icc  > 0.82: field_icc.value = f'Riesgo MUY ALTO, ICC: {icc}'
-                    elif 30 <= int(field_edad.value) <39:
+                    elif 30 <= float(field_edad.value) <39:
                         if  icc < 0.72: field_icc.value = f'Riesgo BAJO, ICC: {icc}' 
                         elif 0.72 <= icc <= 0.78: field_icc.value = f'Riesgo MODERADO, ICC: {icc}'  
                         elif 0.79 <= icc <= 0.84: field_icc.value = f'Riesgo ALTO, ICC: {icc}'
                         elif icc  > 0.84: field_icc.value = f'Riesgo MUY ALTO, ICC: {icc}'
-                    elif 40 <= int(field_edad.value) <49:
+                    elif 40 <= float(field_edad.value) <49:
                         if  icc < 0.73: field_icc.value = f'Riesgo BAJO, ICC: {icc}' 
                         elif 0.73 <= icc <= 0.79: field_icc.value = f'Riesgo MODERADO, ICC: {icc}'  
                         elif 0.8 <= icc <= 0.87: field_icc.value = f'Riesgo ALTO, ICC: {icc}'
                         elif icc  > 0.87: field_icc.value = f'Riesgo MUY ALTO, ICC: {icc}'
-                    elif 50 <= int(field_edad.value) <59:
+                    elif 50 <= float(field_edad.value) <59:
                         if  icc < 0.74: field_icc.value = f'Riesgo BAJO, ICC: {icc}' 
                         elif 0.74 <= icc <= 0.81: field_icc.value = f'Riesgo MODERADO, ICC: {icc}'  
                         elif 0.82 <= icc <= 0.88: field_icc.value = f'Riesgo ALTO, ICC: {icc}'
                         elif icc  > 0.88: field_icc.value = f'Riesgo MUY ALTO, ICC: {icc}'
-                    elif 60 <= int(field_edad.value) <69:
+                    elif 60 <= float(field_edad.value) <69:
                         if  icc < 0.76: field_icc.value = f'Riesgo BAJO, ICC: {icc}' 
                         elif 0.76 <= icc <= 0.83: field_icc.value = f'Riesgo MODERADO, ICC: {icc}'  
                         elif 0.84 <= icc <= 0.9: field_icc.value = f'Riesgo ALTO, ICC: {icc}'
@@ -204,9 +204,9 @@ def main(page: ft.Page):
         )
         field_ca = ft.TextField(label = 'Criterios de evaluación de riesgos',read_only=True, width=300, color = 'blue')
         clc = ft.ElevatedButton('Calcula ICC', on_click=icc_calc,color ='white',bgcolor='blue')
-        field_perimetro_cintura = ft.TextField(suffix_text='centimetros',text_align=ft.TextAlign.CENTER,label='Perimetro cintura',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
-        field_perimetro_cadera = ft.TextField(suffix_text='centimetros',text_align=ft.TextAlign.CENTER,label='Perimetro cadera',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
-        field_edad = ft.TextField(suffix_text='años',text_align=ft.TextAlign.CENTER,label='Edad',value=edad,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 200)
+        field_perimetro_cintura = ft.TextField(suffix_text='centimetros',text_align=ft.TextAlign.CENTER,label='Perimetro cintura',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
+        field_perimetro_cadera = ft.TextField(suffix_text='centimetros',text_align=ft.TextAlign.CENTER,label='Perimetro cadera',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
+        field_edad = ft.TextField(suffix_text='años',text_align=ft.TextAlign.CENTER,label='Edad',value=edad,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 200)
         hombre_mujer = ft.Slider(min=0, max=1, divisions=1,active_color='blue', inactive_color='red',thumb_color='green', width=20,value = 0,on_change=icc_calc)
         field_icc = ft.TextField(label = 'Índice de cintura y cadera',read_only=True, width=300, color = 'blue')
        
@@ -225,7 +225,7 @@ def main(page: ft.Page):
     def spc_clicked(e):
         
         def spc_calc(e):
-            edad=int(field_edad.value) if field_edad.value != '' else ''
+            edad=float(field_edad.value) if field_edad.value != '' else ''
             peso=float(field_peso.value) if field_peso.value != '' else ''
             pl_bi=float(field_pl_bicipital.value) if field_pl_bicipital.value != '' else 0
             pl_tri=float(field_pl_tricipital.value) if field_pl_tricipital.value != '' else 0
@@ -612,12 +612,12 @@ def main(page: ft.Page):
             
             container_calculos.update()
         clc = ft.ElevatedButton('Calcula la densidad corporal', on_click=spc_calc,color ='white',bgcolor='blue')
-        field_edad = ft.TextField(suffix_text='años',text_align=ft.TextAlign.CENTER,label='Edad',value = edad,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
-        field_peso = ft.TextField(suffix_text='kilogramos',text_align=ft.TextAlign.CENTER,label='Peso',value = peso,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
-        field_pl_bicipital = ft.TextField(suffix_text='milimetros',text_align=ft.TextAlign.CENTER,label='Pliegue bicipital',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
-        field_pl_tricipital = ft.TextField(suffix_text='milimetros',text_align=ft.TextAlign.CENTER,label='Pliegue tricipital',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
-        field_pl_suprailiaco = ft.TextField(suffix_text='milimetros',text_align=ft.TextAlign.CENTER,label='Pliegue suprailiaco',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
-        field_pl_subescapular = ft.TextField(suffix_text='milimetros',text_align=ft.TextAlign.CENTER,label='Pliegue subescapular',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
+        field_edad = ft.TextField(suffix_text='años',text_align=ft.TextAlign.CENTER,label='Edad',value = edad,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
+        field_peso = ft.TextField(suffix_text='kilogramos',text_align=ft.TextAlign.CENTER,label='Peso',value = peso,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
+        field_pl_bicipital = ft.TextField(suffix_text='milimetros',text_align=ft.TextAlign.CENTER,label='Pliegue bicipital',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
+        field_pl_tricipital = ft.TextField(suffix_text='milimetros',text_align=ft.TextAlign.CENTER,label='Pliegue tricipital',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
+        field_pl_suprailiaco = ft.TextField(suffix_text='milimetros',text_align=ft.TextAlign.CENTER,label='Pliegue suprailiaco',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
+        field_pl_subescapular = ft.TextField(suffix_text='milimetros',text_align=ft.TextAlign.CENTER,label='Pliegue subescapular',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
         field_densidad_corporal=ft.TextField(text_align=ft.TextAlign.CENTER,label = 'Densidad corporal',read_only=True,width =300, color = 'blue')
         field_grasa_corporal = ft.TextField(text_align=ft.TextAlign.CENTER,label = 'Grasa corporal',read_only=True, width =300, color = 'blue')
         field_masa_grasa = ft.TextField(suffix_text='kilogramos',text_align=ft.TextAlign.CENTER,label = 'Masa grasa',read_only=True, width =300, color = 'blue')
@@ -708,9 +708,9 @@ def main(page: ft.Page):
         
         field_peso = ft.TextField(suffix_text='kilogramos',text_align=ft.TextAlign.CENTER,label='Peso',width = 300)
         
-        field_car = ft.TextField(suffix_text='gramos',text_align=ft.TextAlign.CENTER,label = 'Carbohídratos',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width =300)
-        field_pro = ft.TextField(suffix_text='gramos',text_align=ft.TextAlign.CENTER,label = 'Proteínas',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width =300)
-        field_lip = ft.TextField(suffix_text='gramos',text_align=ft.TextAlign.CENTER,label = 'Lípidos',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width =300)
+        field_car = ft.TextField(suffix_text='gramos',text_align=ft.TextAlign.CENTER,label = 'Carbohídratos',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width =300)
+        field_pro = ft.TextField(suffix_text='gramos',text_align=ft.TextAlign.CENTER,label = 'Proteínas',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width =300)
+        field_lip = ft.TextField(suffix_text='gramos',text_align=ft.TextAlign.CENTER,label = 'Lípidos',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width =300)
         
         field_cal_car = ft.TextField(suffix_text='Kilocalorias',text_align=ft.TextAlign.CENTER,label = 'Carbohídratos',read_only=True,width =300, color = 'blue')
         field_cal_pro = ft.TextField(suffix_text='Kilocalorias',text_align=ft.TextAlign.CENTER,label = 'Proteínas',read_only=True,width =300, color = 'blue')
@@ -823,9 +823,9 @@ def main(page: ft.Page):
                 field_eta.value = eta
                 container_calculos.update()
         clc = ft.ElevatedButton('Calcula peso ideal y peso corregido', on_click=pi_calc,color ='white',bgcolor='blue')
-        field_edad = ft.TextField(suffix_text='años',text_align=ft.TextAlign.CENTER,label='Edad',value= edad,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
-        field_peso = ft.TextField(suffix_text='kilogramos',text_align=ft.TextAlign.CENTER,label='Peso',value = peso,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
-        field_altura= ft.TextField(suffix_text='centimetros',text_align=ft.TextAlign.CENTER,label='Altura',value = altura,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
+        field_edad = ft.TextField(suffix_text='años',text_align=ft.TextAlign.CENTER,label='Edad',value= edad,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
+        field_peso = ft.TextField(suffix_text='kilogramos',text_align=ft.TextAlign.CENTER,label='Peso',value = peso,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
+        field_altura= ft.TextField(suffix_text='centimetros',text_align=ft.TextAlign.CENTER,label='Altura',value = altura,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
         field_pi = ft.TextField(suffix_text='kilogramos',text_align=ft.TextAlign.CENTER,label = 'Peso ideal',read_only=True,width =300, color = 'blue')
         field_pc = ft.TextField(suffix_text='kilogramos',text_align=ft.TextAlign.CENTER,label = 'Peso corregido',read_only=True,width =300, color = 'blue')
         field_tmb = ft.TextField(text_align=ft.TextAlign.CENTER,label = 'Tasa metabólica basal TMB',read_only=True,width =300, color = 'blue')
@@ -851,21 +851,21 @@ def main(page: ft.Page):
         )
         hombre_mujer = ft.Slider(min=0, max=1, divisions=1,active_color='blue', inactive_color='red',thumb_color='green', width=20,value = 0,on_change=pi_calc)
         
-        field_t_dormido = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label='Dormido',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
-        field_t_cp = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Cuidado personal (vestirse, ducharse)',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width =300)
-        field_t_comiendo = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Comiendo',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width =300)
-        field_t_cocinando = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Cocinando',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width =300)
-        field_t_sentado = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Sentado (trabajo sentado...)',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width =300)
-        field_t_trabajo = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Trabajo domestico general',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width =300)
-        field_t_conducir  = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Conducir coche haciá /desde el trabajo',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width =300)
-        field_t_caminar  = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Caminar a diferentes ritmos sin carga',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width =300)
-        field_t_actividades = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Actividades livianas de ocio(TV, charlar...)',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width =300)
+        field_t_dormido = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label='Dormido',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
+        field_t_cp = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Cuidado personal (vestirse, ducharse)',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width =300)
+        field_t_comiendo = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Comiendo',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width =300)
+        field_t_cocinando = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Cocinando',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width =300)
+        field_t_sentado = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Sentado (trabajo sentado...)',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width =300)
+        field_t_trabajo = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Trabajo domestico general',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width =300)
+        field_t_conducir  = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Conducir coche haciá /desde el trabajo',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width =300)
+        field_t_caminar  = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Caminar a diferentes ritmos sin carga',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width =300)
+        field_t_actividades = ft.TextField(suffix_text='horas',text_align=ft.TextAlign.CENTER,label = 'Actividades livianas de ocio(TV, charlar...)',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width =300)
         
         field_par = ft.TextField(suffix_text='kilocalorias',text_align=ft.TextAlign.CENTER,label='Coste energetico (PAR)',read_only=True,width=300, color = 'blue')
         field_pal = ft.TextField(text_align=ft.TextAlign.CENTER,label='PAL',read_only=True,width=550, color = 'blue')
         field_get = ft.TextField(suffix_text='kilocalorias',text_align=ft.TextAlign.CENTER,label='Gasto energético total',read_only=True,width=280, color = 'blue')
         field_get_eta  = ft.TextField(suffix_text='kilocalorias',text_align=ft.TextAlign.CENTER,label='Gasto energético total con ETA',read_only=True,width=320, color = 'blue')
-        field_ic= ft.TextField(suffix_text='Kilocalorias',text_align=ft.TextAlign.CENTER,label='Ingesta calórica IC',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 320)
+        field_ic= ft.TextField(suffix_text='Kilocalorias',text_align=ft.TextAlign.CENTER,label='Ingesta calórica IC',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 320)
         field_be = ft.TextField(suffix_text='kilocalorias',text_align=ft.TextAlign.CENTER,label='Balance energético',read_only=True,width=250, color = 'blue')
         field_eta = ft.TextField(suffix_text='kilocalorias',text_align=ft.TextAlign.CENTER,label='ETA*',read_only=True,width=200, color = 'blue')
         container_calculos.content= ft.Column([
@@ -945,21 +945,21 @@ def main(page: ft.Page):
                 container_calculos.update()
         clc = ft.ElevatedButton('Cálcula requerimientos diarios', on_click=rq_calc,color ='white',bgcolor='blue' )
         n_clc = ft.ElevatedButton('Nuevo calculo', on_click=rq_carbohidratos_clicked,color ='white',bgcolor='blue' )
-        field_peso = ft.TextField(suffix_text='Kilogramos',text_align=ft.TextAlign.CENTER,label='Peso',value = peso,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
+        field_peso = ft.TextField(suffix_text='Kilogramos',text_align=ft.TextAlign.CENTER,label='Peso',value = peso,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
         
         field_car = ft.TextField(suffix_text='gramos',text_align=ft.TextAlign.CENTER,label = 'Carbohídratos',read_only=True,width =300, color = 'blue')
         field_pro = ft.TextField(suffix_text='gramos',text_align=ft.TextAlign.CENTER,label = 'Proteínas',read_only=True,width =300, color = 'blue')
         field_lip = ft.TextField(suffix_text='gramos',text_align=ft.TextAlign.CENTER,label = 'Lípidos',read_only=True,width =300, color = 'blue')
-        field_get = ft.TextField(label = 'Gasto energetico total GET (Kcal)',width =300,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
+        field_get = ft.TextField(label = 'Gasto energetico total GET (Kcal)',width =300,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
         field_rq_car = ft.TextField(suffix_text='Kilocalorias',text_align=ft.TextAlign.CENTER,label = 'Carbohídratos',read_only=True,width =300, color = 'blue')
         field_rq_pro = ft.TextField(suffix_text='Kilocalorias',text_align=ft.TextAlign.CENTER,label = 'Proteínas',read_only=True,width =300, color = 'blue')
         field_rq_lip = ft.TextField(suffix_text='Kilocalorias',text_align=ft.TextAlign.CENTER,label = 'Lípidos',read_only=True,width =300, color = 'blue')
         field_gr_kg_car = ft.TextField(suffix_text='gr/kg peso',text_align=ft.TextAlign.CENTER,label = 'Carbohídratos',read_only=True,width =300, color = 'blue')
         field_gr_kg_pro = ft.TextField(suffix_text='gr/kg peso',text_align=ft.TextAlign.CENTER,label = 'Proteínas',width =300,)
         field_gr_kg_lip = ft.TextField(suffix_text='gr/kg peso',text_align=ft.TextAlign.CENTER,label = 'Lípidos',read_only=True,width =300, color = 'blue')
-        field_pdm_car = ft.TextField(suffix_text='%',text_align=ft.TextAlign.CENTER,label = 'Carbohídtratos',width =300,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_pdm_pro = ft.TextField(suffix_text='%',text_align=ft.TextAlign.CENTER,label = 'Proteínas',width =300,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_pdm_lip = ft.TextField(suffix_text='%',text_align=ft.TextAlign.CENTER,label = 'Lípidos',width =300,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
+        field_pdm_car = ft.TextField(suffix_text='%',text_align=ft.TextAlign.CENTER,label = 'Carbohídtratos',width =300,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_pdm_pro = ft.TextField(suffix_text='%',text_align=ft.TextAlign.CENTER,label = 'Proteínas',width =300,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_pdm_lip = ft.TextField(suffix_text='%',text_align=ft.TextAlign.CENTER,label = 'Lípidos',width =300,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
         
         container_calculos.content= ft.Column([
                                             ft.Row([ft.Text('Cálculo de requerimientos diarios de carbohidratos/proteinas/lipidos en la dieta',weight='bold', color = 'blue')],ft.MainAxisAlignment.CENTER),
@@ -1048,32 +1048,32 @@ def main(page: ft.Page):
                 field_cant_cen.value= f'Carbohidratos: {gr_cen_carb} gr → {kcal_cen_carb} kcal\nProteinas: {gr_cen_pro} gr → {kcal_cen_pro} kcal\nLipidos: {gr_cen_lip }gr → {kcal_cen_lip} kcal'
                 
                 container_calculos.update()
-        field_kcal_total = ft.TextField(label = 'Gasto energetico total GET (Kcal)',width =300,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
+        field_kcal_total = ft.TextField(label = 'Gasto energetico total GET (Kcal)',width =300,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
        
-        field_des = ft.TextField(label = 'Desayuno',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_des_car=ft.TextField(label = 'Desayuno',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_des_pro=ft.TextField(label = 'Desayuno',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_des_lip=ft.TextField(label = 'Desayuno',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
+        field_des = ft.TextField(label = 'Desayuno',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_des_car=ft.TextField(label = 'Desayuno',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_des_pro=ft.TextField(label = 'Desayuno',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_des_lip=ft.TextField(label = 'Desayuno',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
         
-        field_mm = ft.TextField(label = 'Media mañana',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_mm_car=ft.TextField(label = 'Media mañana',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_mm_pro=ft.TextField(label = 'Media mañana',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_mm_lip=ft.TextField(label = 'Media mañana',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
+        field_mm = ft.TextField(label = 'Media mañana',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_mm_car=ft.TextField(label = 'Media mañana',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_mm_pro=ft.TextField(label = 'Media mañana',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_mm_lip=ft.TextField(label = 'Media mañana',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
         
-        field_alm = ft.TextField(label = 'Almuerzo',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_alm_car=ft.TextField(label = 'Almuerzo',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_alm_pro=ft.TextField(label = 'Almuerzo',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_alm_lip=ft.TextField(label = 'Almuerzo',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
+        field_alm = ft.TextField(label = 'Almuerzo',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_alm_car=ft.TextField(label = 'Almuerzo',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_alm_pro=ft.TextField(label = 'Almuerzo',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_alm_lip=ft.TextField(label = 'Almuerzo',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
         
-        field_mer = ft.TextField(label = 'Merienda',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_mer_car=ft.TextField(label = 'Merienda',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_mer_pro=ft.TextField(label = 'Merienda',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_mer_lip=ft.TextField(label = 'Merienda',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
+        field_mer = ft.TextField(label = 'Merienda',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_mer_car=ft.TextField(label = 'Merienda',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_mer_pro=ft.TextField(label = 'Merienda',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_mer_lip=ft.TextField(label = 'Merienda',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
         
-        field_cen = ft.TextField(label = 'Cena',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_cen_car=ft.TextField(label = 'Cena',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_cen_pro=ft.TextField(label = 'Cena',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
-        field_cen_lip=ft.TextField(label = 'Cena',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),)
+        field_cen = ft.TextField(label = 'Cena',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_cen_car=ft.TextField(label = 'Cena',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_cen_pro=ft.TextField(label = 'Cena',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
+        field_cen_lip=ft.TextField(label = 'Cena',width =200,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),)
         
         
         field_cant_des = ft.TextField(label = 'Desayuno',read_only=True,width =350,text_style=ft.TextStyle(weight='bold',color = 'blue'),multiline=True,min_lines=3)
@@ -1120,10 +1120,10 @@ def main(page: ft.Page):
         def calc(e):
             globals()['peso'] = int(field_peso.value)
             globals()['altura'] = int(field_altura.value)
-            globals()['edad'] = int(field_edad.value)
+            globals()['edad'] = float(field_edad.value)
         field_peso = ft.TextField(label='Introduce el peso (kg)',value = peso,input_filter=ft.InputFilter(allow=True, regex_string=r"[0-9]"),width = 300)
-        field_altura = ft.TextField(label='Introduce altura (cm)',value = altura,input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 300)
-        field_edad = ft.TextField(label='Introduce edad',input_filter=ft.InputFilter(allow=False, regex_string=r"[a-zñç|A-ZÑÇ|,|*|\\|º|/|+|<|>|:|;|_|!|@|`|´|¡|'|¿|?|=|)|(|/|&|%$|·|\"|!|ª|#|~|€|¬|{|}|[|]||^]", replacement_string=""),width = 200)
+        field_altura = ft.TextField(label='Introduce altura (cm)',value = altura,input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 300)
+        field_edad = ft.TextField(label='Introduce edad',input_filter=ft.InputFilter(allow=False, regex_string=r"^[0-9.]*$", replacement_string=""),width = 200)
         field_imc = ft.TextField(label = 'Índice de masa corporal',value=indice_masa_corporal,read_only=True,width = 300, color = 'blue')
         clc = ft.ElevatedButton('Set', on_click=calc,color ='white',bgcolor='blue')
         container_calculos.content= ft.Column([
