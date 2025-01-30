@@ -1,6 +1,6 @@
 import flet as ft
 import math,time
-
+import flet.version
 
 indice_masa_corporal=''
 peso=''
@@ -1376,7 +1376,11 @@ def main(page: ft.Page):
         dlg_modal = ft.AlertDialog(
             modal=False,
             title=ft.Text('Acerca de', text_align='center',size=24),
-            content=ft.Text(spans= [ft.TextSpan('Hecho con ❤️ por Alexandru G. Muntenas para mi esposa\n'), ft.TextSpan('alexandru.muntenas@gmail.com',on_click=lambda _:page.launch_url('mailto:alexandru.muntenas@gmail.com'),style=ft.TextStyle(color='red',weight=ft.FontWeight.W_400))], size=14,italic = True, text_align='center'),
+            content=ft.Text(spans= [
+                ft.TextSpan('Hecho con ❤️ por Alexandru G. Muntenas para mi esposa\n'),
+                ft.TextSpan('alexandru.muntenas@gmail.com\n',on_click=lambda _:page.launch_url('mailto:alexandru.muntenas@gmail.com'),style=ft.TextStyle(color='red',weight=ft.FontWeight.W_400)),
+                ft.TextSpan(f"Flet version: {flet.version.version}")
+                ], size=14,italic = True, text_align='center'),
             actions=[ft.TextButton('Ok', on_click=close_dlg),], actions_alignment=ft.MainAxisAlignment.END,
             on_dismiss=close_dlg
                     )
@@ -1718,6 +1722,7 @@ def main(page: ft.Page):
                 ]
             ),
             ft.SubmenuButton(content=ft.Text("",expand=True),),
+            
             #ft.SubmenuButton(content=ft.IconButton(on_click=salir,icon=ft.icons.EXIT_TO_APP),),
             #ft.SubmenuButton(content=ft.IconButton(on_click=datos,icon=ft.icons.DATA_ARRAY),)
         ]
