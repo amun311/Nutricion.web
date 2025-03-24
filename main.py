@@ -882,7 +882,7 @@ def main(page: ft.Page):
                                                 ft.Row([field_pi,field_pc,field_tmb],ft.MainAxisAlignment.CENTER),
                                                
                                                 ft.Row([ft.Text('PAL es la media que determinamos a partir del factor de actividad física, nos ayuda para estimar de una forma más simplificada el Gasto Energético Total del paciente',weight='bold', color = 'blue')],ft.MainAxisAlignment.CENTER),
-                                                ft.Row([ft.Text('Para calcular PAL debe sumar el resultado del “Tiempo x coste energético',weight='bold', color = 'blue'),ft.Text('(factor de activiad)(PAR)”', color = 'red'),ft.Text('por cada actividad y dividirlo entre 24',weight='bold', color = 'blue')],ft.MainAxisAlignment.CENTER),
+                                                ft.Row([ft.Text('Para calcular PAL debe sumar el resultado del “Tiempo x coste energético',weight='bold', color = 'blue'),ft.Text('(factor de activiad)(PAR)', color = 'red'),ft.Text('” por cada actividad y dividirlo entre 24',weight='bold', color = 'blue')],ft.MainAxisAlignment.CENTER),
                                                 
                                                 ft.Row([field_par,field_pal],ft.MainAxisAlignment.CENTER),
                                                 ft.Row([ft.Text('Recuerda que la ecuacion de balance energético es BE= ingesta calórica - gasto energético total (GET)',weight='bold', color = 'blue')],ft.MainAxisAlignment.CENTER),
@@ -1378,7 +1378,7 @@ def main(page: ft.Page):
             title=ft.Text('Acerca de', text_align='center',size=24),
             content=ft.Text(spans= [
                 ft.TextSpan('Hecho con ❤️ por Alexandru G. Muntenas para mi esposa\n'),
-                ft.TextSpan('alexandru.muntenas@gmail.com\n',on_click=lambda _:page.launch_url('mailto:alexandru.muntenas@gmail.com'),style=ft.TextStyle(color='red',weight=ft.FontWeight.W_400)),
+                ft.TextSpan('alexandru@muntenas.eu\n',on_click=lambda _:page.launch_url('mailto:alexandru@muntenas.eu'),style=ft.TextStyle(color='red',weight=ft.FontWeight.W_400)),
                 ft.TextSpan(f"Flet version: {flet.version.version}")
                 ], size=14,italic = True, text_align='center'),
             actions=[ft.TextButton('Ok', on_click=close_dlg),], actions_alignment=ft.MainAxisAlignment.END,
